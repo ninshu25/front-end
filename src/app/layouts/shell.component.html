@@ -1,0 +1,47 @@
+
+<shell-nav-bar (toggle)="onToggleSidebar()"></shell-nav-bar>
+
+<mat-sidenav-container
+  class="shell-main-sidenav-container" [ngClass]="{
+    mini: !isExpanded && !isSmallScreen,
+    'mini-expanded': !isExpanded && !isSmallScreen && isMiniExpanded
+  }" autosize>
+  <mat-sidenav
+    #sidenav
+    [mode]="sidenavMode"
+    class="shell-main-sidenav"
+    [opened]="isOpened"
+    [disableClose]="true"
+    (mouseenter)="mouseEnter()"
+    (mouseleave)="mouseLeave()"
+    (openedStart)="onSidenavOpenedStart()"
+    (closedStart)="onSideNavClosedStart()"
+  >
+    <div class="nav-content">
+
+      @for (pageGroup of pageGroups; track $index) {
+        <mat-list role="list">
+          @for (page of pageGroup.pages; track $index) {
+            <mat-list-item role="listitem" [routerLink]="page.path">
+              <mat-icon>{{ page.fontIcon }}</mat-icon>
+              <span [ngClass]="{navexpanded: !isExpanded}">
+                {{ page.name }}
+              </span>
+            </mat-list-item>
+        }
+        </mat-list>
+      }
+      
+
+      
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="shell-main-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer>
+  ISB Technical Test 2024 Nathan Ciantar
+</footer>
+

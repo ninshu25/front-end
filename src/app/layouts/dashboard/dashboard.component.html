@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+    @if(multi.length != 0 && propertyOwnerships){
+        <div class="metrics-container">
+            <h2>Overall Metrics</h2>
+            <ngx-charts-pie-chart
+                [view]="[600, 300]"
+                [results]="multi[1]"
+                [legend]="false"
+                [labels]="true"
+                [doughnut]="false"
+                >
+            </ngx-charts-pie-chart>
+
+            <h2>Monthly Metrics</h2>
+            <ngx-charts-number-card
+                [view]="[600, 300]"
+                [results]="multi[0]"
+                [cardColor]="cardColor"
+                (select)="onSelect($event)">
+            </ngx-charts-number-card>
+        </div>
+        
+        <div class="grid-container">
+            <h2>Recent Ownerships Transfers</h2>
+            <dynamic-grid
+                [data]="propertyOwnerships"
+                [dto]="dto">
+    
+            </dynamic-grid>
+        </div> 
+    }
+</div>

@@ -1,0 +1,22 @@
+@if (id && property && propertyOwnerships) {
+    <div class="property-info-container">
+        <dynamic-form
+            class="dynamic-object"
+            [data]="property"
+            [dto]="dto"
+            [entityName]="'Property'"
+            [editing]="true"
+            [editable]="true"
+            (submitForm)="updateProperty($event)"
+            >
+        </dynamic-form>
+
+        <dynamic-grid
+            class="dynamic-object"
+            [dto]="dtoOwnership"
+            [data]="propertyOwnerships"
+            [addable]="true"
+            (actionSelected)="performActionSelected($event)">
+        </dynamic-grid>
+    </div>
+}

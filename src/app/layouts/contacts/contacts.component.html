@@ -1,0 +1,19 @@
+@if (contacts) {
+    <dynamic-grid
+        [entityName]="'Contacts'"
+        [data]="contacts"
+        [dto]="dto"
+        [rowActions]="true"
+        [filter]="true"
+        [selectable]="true"
+        [expandable]="false"
+        [editable]="true"
+        [viewable]="false"
+        [deleteable]="true"
+        [addable]="true"
+        (actionSelected)="performActionSelected($event)"
+        (isDeleted)="deleteContact($event)"
+        (isEdit)="editContact($event)"
+        (pageSettingsUpdated)="pageUpdated($event)">
+    </dynamic-grid>
+}

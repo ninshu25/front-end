@@ -1,0 +1,93 @@
+.page-toolbar{
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .actions-button{
+    margin-bottom: 20px;
+  }
+}
+
+.grid-container{
+  background:white;
+  border-radius: 12px;
+  padding-top: 10px;
+
+  /* Structure */
+  .list-container {
+    height: calc(100vh - 96px - 300px); // last figure to be increased as more components get in
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table-container {
+    flex: 1;
+    overflow: auto;
+
+    .filter-container{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    
+    tr.example-detail-row {
+      height: 0;
+    }
+    .example-element-detail {
+      overflow: hidden;
+      display: flex;
+    }
+
+    .mat-column-view, .mat-column-delete, .mat-column-select {
+      max-width: 64px;
+      text-align: center;
+    }
+
+
+    .table-row{
+      // background-color: black;
+
+      td {
+        border-bottom-width: 0;
+      }
+
+    }
+    
+    .read{
+      background-color: black;
+    }
+    .un-read{
+      font-weight: 600;
+    }
+  }
+    
+    
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+    
+  .mat-column-created {
+    max-width: 124px;
+  }
+
+  .mat-column-actions, .mat-column-expand {
+    max-width: 54px;
+    text-align: center;
+  }
+
+  .unvisible-column-header{
+    opacity: 0;
+  }
+
+ 
+} 

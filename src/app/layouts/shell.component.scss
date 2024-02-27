@@ -1,0 +1,156 @@
+$sidenav-expanded-width: 250px;
+$sidenav-mini-width: 50px;
+$nav-vertical-spacing: 1vh;
+$warning-bar-height: 30px;
+$nav-item-vert-padding: 2px;
+$content-margin: 30px;
+
+
+
+$font-sm: 12px;
+
+@mixin sidenav-transition {
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+//Material Design screen breakpoints
+$screen-mat-sm: 600px;
+$screen-mat-lg: 960px;
+$screen-mat-sm-min: $screen-mat-sm;
+$screen-mat-sm-max: ($screen-mat-lg -1);
+$screen-mat-sm-onwards: "only screen and (min-width: " + $screen-mat-sm-min + ")";
+
+.mat-icon {
+  overflow: unset;
+  padding: 0 12px 0 8px;
+}
+
+
+
+
+
+.mat-nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+mat-sidenav-container.shell-main-sidenav-container {
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64px;
+  bottom: 28px;
+  margin: 0;
+  transform: none;
+  //padding-top: 10px;
+
+  mat-sidenav-content.shell-main-content {
+    height: calc(100vh - 96px);
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin: 30px;
+  }
+  
+  mat-list-item{
+    padding: 0;
+    padding-left: 5px;
+    color: white;
+
+    &:hover{
+      cursor: pointer;
+      opacity: 70%;
+    }
+
+    span{
+      color: white
+    }
+
+    mat-icon{
+      color: white;
+    }
+
+  }
+
+  .navexpanded{
+    @include sidenav-transition;
+  }
+}
+
+.mat-divider {
+  border-top-color: rgba(125, 125, 125, 0.5);
+  margin: 10px 0;
+}
+
+@media #{$screen-mat-sm-onwards} {
+
+  mat-sidenav-container.shell-main-sidenav-container {
+    mat-sidenav.mat-sidenav.shell-main-sidenav {
+      background-color: rgb(23, 23, 23);
+      color: white;
+      width: $sidenav-expanded-width;
+      @include sidenav-transition;
+    }
+
+    .mat-drawer-content {
+      margin-left: $sidenav-expanded-width + $content-margin !important;
+      @include sidenav-transition;
+    }
+  }
+
+  mat-sidenav-container.shell-main-sidenav-container.mini.mini-expanded {
+    mat-sidenav.mat-sidenav.shell-main-sidenav {
+      width: $sidenav-expanded-width;
+      @include sidenav-transition;
+
+      .nav-sub-item {
+        @include sidenav-transition;
+        display: flex;
+      }
+    }
+  }
+
+  mat-sidenav-container.shell-main-sidenav-container.mini {
+    mat-sidenav.mat-sidenav.shell-main-sidenav {
+      width: $sidenav-mini-width;
+      @include sidenav-transition;
+
+      .section-name{
+        @include sidenav-transition;
+        display: none;
+      }
+
+      .nav-sub-item {
+        @include sidenav-transition;
+        display: none;
+      }
+    }
+
+    .mat-drawer-content {
+      margin-left: $sidenav-mini-width + $content-margin!important;
+      @include sidenav-transition;
+    }
+  }
+
+}
+
+.shell-content{
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  margin: 30px;
+}
+
+@media print {
+  .shell-main-sidenav {
+    display: none !important;
+  }
+
+  * { overflow: visible !important; }
+}
+

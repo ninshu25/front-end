@@ -1,0 +1,33 @@
+.form-container{
+  padding: 40px;
+
+  .form-header-container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  form{
+  
+    .form-field-container{
+
+      .fade-container{
+        display: flex;
+        flex-direction: column;
+
+        .viewing-label{
+          font-weight: 800;
+          font-size: large;
+          margin-top: 17px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    .form-actions-container{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+

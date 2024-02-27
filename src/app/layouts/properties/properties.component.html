@@ -1,0 +1,20 @@
+@if (properties) {
+    <dynamic-grid
+        [entityName]="'Properties'"
+        [data]="properties"
+        [dto]="dto"
+        [rowActions]="true"
+        [filter]="true"
+        [selectable]="true"
+        [expandable]="false"
+        [viewable]="true"
+        [deleteable]="true"
+        [addable]="true"
+        [editable]="true"
+        (actionSelected)="performActionSelected($event)"
+        (isDeleted)="deleteProperty($event)"
+        (isViewed)="viewProperty($event)"
+        (isEdit)="editProperty($event)"
+        (pageSettingsUpdated)="pageUpdated($event)">
+    </dynamic-grid>
+}
